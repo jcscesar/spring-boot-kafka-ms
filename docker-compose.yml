@@ -1,0 +1,42 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  portalcurso:
+    image: postgres
+    restart: always
+    container_name: portal_curse_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: portalcurso
+    volumes:
+      - ./database/portalcurso:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - netCursoPortal
+
+  car_post_store:
+    image: postgres
+    container_name: car_post_store_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: car_post_store
+    volumes:
+      - ./database/car_post_store:/var/lib/postgresql/data
+    ports:
+      - 5431:5432
+    networks:
+      - netCursoPortal
+
+
+volumes:
+  database:
+
+networks:
+  netCursoPortal:
+    driver: bridge

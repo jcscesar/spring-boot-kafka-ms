@@ -28,6 +28,7 @@ services:
       POSTGRES_DB: car_post_store
     volumes:
       - ./database/car_post_store:/var/lib/postgresql/data
+      - ./database/postgres/docker-entrypoint-initdb:/docker-entrypoint-initdb.d/
     ports:
       - 5431:5432
     networks:

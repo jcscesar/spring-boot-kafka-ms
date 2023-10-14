@@ -15,7 +15,7 @@ public class CarPostDTO {
 
     private String model;
     private String brand;
-    private String prince;
+    private Double prince;
     private String description;
     private String engiveVersion;
     private String city;

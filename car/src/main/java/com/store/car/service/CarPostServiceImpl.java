@@ -22,6 +22,27 @@ public class CarPostServiceImpl implements CarPostService {
 
     @Override
     public void mewPostDetails(CarPostDTO carPostDTO) {
+        CarPostEntity carPostEntity = mapCarDTotoEntity(carPostDTO);
+        carPostRepository.save(carPostEntity);
+    }
+
+    private CarPostEntity mapCarDTotoEntity(CarPostDTO carPostDTO) {
+        CarPostEntity carPostEntity = new CarPostEntity();
+        ownerPostRepository.findById(carPostDTO.getOwnerId()).ifPresentOrElse(item -> {
+            carPostEntity.setOwnerPost(item);
+            carPostEntity.setContact(item.getContact());
+        }, () -> {
+            throw new RuntimeException();
+        });
+
+        carPostEntity.setModel(carPostDTO.getModel());
+        carPostEntity.setBrand(carPostEntity.getBrand());
+        carPostEntity.setPrince(carPostEntity.getPrince());
+        carPostEntity.setCity(carPostEntity.getCity());
+        carPostEntity.setDescription(carPostEntity.getDescription());
+        carPostEntity.setEngineVersion(carPostEntity.getEngineVersion());
+        carPostEntity.setCreatedDate(carPostEntity.getCreatedDate());
+        return carPostEntity;
 
     }
 

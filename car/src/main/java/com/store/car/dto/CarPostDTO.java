@@ -5,6 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.util.UUID;
 
 @Data
 @Builder
@@ -12,7 +17,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @JsonInclude
 public class CarPostDTO {
-
     private String model;
     private String brand;
     private Double prince;
@@ -20,9 +24,10 @@ public class CarPostDTO {
     private String engiveVersion;
     private String city;
     private String createdDate;
-    private Long ownerId;
+    private UUID ownerId;
     private String ownerName;
     private String ownerType;
     private String contact;
+
 
 }

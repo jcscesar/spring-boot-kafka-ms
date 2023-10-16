@@ -5,12 +5,14 @@ import com.store.car.entity.CarPostEntity;
 import com.store.car.repository.CarPostRepository;
 import com.store.car.repository.OwnerPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.UUID;
 
+@Service
 public class CarPostServiceImpl implements CarPostService {
 
 
@@ -30,7 +32,7 @@ public class CarPostServiceImpl implements CarPostService {
         CarPostEntity carPostEntity = new CarPostEntity();
         ownerPostRepository.findById(carPostDTO.getOwnerId()).ifPresentOrElse(item -> {
             carPostEntity.setOwnerPost(item);
-            carPostEntity.setContact(item.getContact());
+            carPostEntity.setContact(item.getContactNumber());
         }, () -> {
             throw new RuntimeException();
         });
@@ -57,7 +59,7 @@ public class CarPostServiceImpl implements CarPostService {
 
 
     @Override
-    public void changesCarSales(CarPostDTO carPostDTO, UUID postId) {
+    public void changesCarSales(CarPostDTO carPostDTO, Long postId) {
         carPostRepository.findById(postId).ifPresentOrElse(carPostItems -> {
             carPostItems.setDescription(carPostDTO.getDescription());
             carPostItems.setContact(carPostDTO.getContact());
@@ -72,7 +74,7 @@ public class CarPostServiceImpl implements CarPostService {
     }
 
     @Override
-    public void removeCarSales(UUID postId) {
+    public void removeCarSales(Long postId) {
         carPostRepository.deleteById(postId);
     }
 

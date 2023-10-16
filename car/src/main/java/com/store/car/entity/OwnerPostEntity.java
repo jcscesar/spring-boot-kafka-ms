@@ -2,8 +2,6 @@ package com.store.car.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -14,8 +12,7 @@ import java.util.UUID;
 public class OwnerPostEntity {
 
     @Id
-    @GeneratedValue(generator = "uuid-hibernate-generator")
-    @GenericGenerator(name = "uuid-hibernate-generator", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     private String name;
@@ -24,7 +21,7 @@ public class OwnerPostEntity {
     private String type;
 
     @Column(name = "owner_contact")
-    private String contact;
+    private String contactNumber;
 
 
 }

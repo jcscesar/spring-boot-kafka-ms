@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface OwnerPostService {
 
-    void createOwner(OwnerPostDTO ownerPostDTO);
+    void createOwnerPost(OwnerPostDTO ownerPostDTO);
 }

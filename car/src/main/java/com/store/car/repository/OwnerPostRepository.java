@@ -12,5 +12,5 @@ import java.util.UUID;
 
 public interface OwnerPostRepository extends JpaRepository<OwnerPostEntity, UUID> {
 
-    Optional<OwnerPostEntity> findById(UUID ownerId);
+
 }

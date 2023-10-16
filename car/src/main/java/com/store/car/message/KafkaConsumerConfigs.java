@@ -33,8 +33,8 @@ public class KafkaConsumerConfigs {
         configProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
         configProps.put(ConsumerConfig.GROUP_ID_CONFIG, "store-posts-group");
         configProps.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, "*");
-        configProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
-        configProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonSerializer.class.getName());
+        configProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        configProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
         return new DefaultKafkaConsumerFactory<>(configProps, new StringDeserializer(),
                 new JsonDeserializer<>(CarPostDTO.class, false));

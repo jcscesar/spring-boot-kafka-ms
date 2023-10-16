@@ -13,8 +13,8 @@ public interface CarPostService {
 
     List<CarPostDTO> getCatSales();
 
-    void changesCarSales(CarPostDTO carPostDTO, UUID postId);
+    void changesCarSales(CarPostDTO carPostDTO, Long postId);
 
-    void removeCarSales(UUID postId);
+    void removeCarSales(Long postId);
 
 }

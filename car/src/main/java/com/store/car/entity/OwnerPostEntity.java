@@ -3,17 +3,16 @@ package com.store.car.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
-@Table(name = "car_post")
+@Table(name = "owner_post")
 @Data
 @NoArgsConstructor
 public class OwnerPostEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private Long id;
 
     private String name;
 

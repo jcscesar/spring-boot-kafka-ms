@@ -5,11 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.util.UUID;
 
 @Data
 @Builder
@@ -24,7 +19,7 @@ public class CarPostDTO {
     private String engiveVersion;
     private String city;
     private String createdDate;
-    private UUID ownerId;
+    private Long ownerId;
     private String ownerName;
     private String ownerType;
     private String contact;

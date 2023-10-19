@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.UUID;
 
 @Service
 public class CarPostServiceImpl implements CarPostService {
@@ -38,12 +37,12 @@ public class CarPostServiceImpl implements CarPostService {
         });
 
         carPostEntity.setModel(carPostDTO.getModel());
-        carPostEntity.setBrand(carPostEntity.getBrand());
-        carPostEntity.setPrince(carPostEntity.getPrince());
-        carPostEntity.setCity(carPostEntity.getCity());
-        carPostEntity.setDescription(carPostEntity.getDescription());
-        carPostEntity.setEngineVersion(carPostEntity.getEngineVersion());
-        carPostEntity.setCreatedDate(carPostEntity.getCreatedDate());
+        carPostEntity.setBrand(carPostDTO.getBrand());
+        carPostEntity.setPrince(carPostDTO.getPrince());
+        carPostEntity.setCity(carPostDTO.getCity());
+        carPostEntity.setDescription(carPostDTO.getDescription());
+        carPostEntity.setEngineVersion(carPostDTO.getEngiveVersion());
+        carPostEntity.setCreatedDate(carPostDTO.getCreatedDate());
         return carPostEntity;
 
     }

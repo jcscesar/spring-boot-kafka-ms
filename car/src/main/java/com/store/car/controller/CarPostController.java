@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/sales")
@@ -23,13 +22,13 @@ public class CarPostController {
     }
 
     @PutMapping("/car/{id}")
-    public ResponseEntity changesCarSales(@RequestBody CarPostDTO carPostDTO, @PathVariable("id") Long id) {
+    public ResponseEntity<CarPostDTO> changesCarSales(@RequestBody CarPostDTO carPostDTO, @PathVariable("id") Long id) {
         carPostService.changesCarSales(carPostDTO, id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/car/{id}")
-    public ResponseEntity deleteCarSales(@PathVariable("id") Long id) {
+    public ResponseEntity<CarPostDTO>  deleteCarSales(@PathVariable("id") Long id) {
         carPostService.removeCarSales(id);
         return  new ResponseEntity<>(HttpStatus.OK);
     }

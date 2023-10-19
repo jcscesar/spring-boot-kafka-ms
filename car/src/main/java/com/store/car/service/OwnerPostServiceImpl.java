@@ -15,9 +15,9 @@ public class OwnerPostServiceImpl implements OwnerPostService {
     @Override
     public void createOwnerPost(OwnerPostDTO ownerPostDTO) {
         OwnerPostEntity ownerPostEntity = new OwnerPostEntity();
-        ownerPostEntity.setName(ownerPostEntity.getName());
-        ownerPostEntity.setType(ownerPostEntity.getType());
-        ownerPostEntity.setContactNumber(ownerPostEntity.getContactNumber());
+        ownerPostEntity.setName(ownerPostDTO.getName());
+        ownerPostEntity.setType(ownerPostDTO.getType());
+        ownerPostEntity.setContactNumber(ownerPostDTO.getContactNumber());
         ownerPostRepository.save(ownerPostEntity);
     }
 }

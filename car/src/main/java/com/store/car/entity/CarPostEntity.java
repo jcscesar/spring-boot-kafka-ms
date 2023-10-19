@@ -2,10 +2,7 @@ package com.store.car.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
 @Table(name = "car_post")
@@ -15,7 +12,7 @@ public class CarPostEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private Long id;
 
     @Column(name = "car_model")
     private String model;

@@ -1,7 +1,7 @@
-package com.store.car.message;
+package br.com.analytics.data.message;
 
-import com.store.car.dto.CarPostDTO;
-import com.store.car.service.CarPostService;
+import br.com.analytics.data.dto.CarPostDTO;
+import br.com.analytics.data.services.PostAnalyticsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +15,11 @@ public class KafkaCosumerMessage {
     private final Logger LOG = LoggerFactory.getLogger(KafkaCosumerMessage.class);
 
     @Autowired
-    private CarPostService carPostService;
+    private PostAnalyticsService postAnalyticsService;
 
-    @KafkaListener(topics = "car-post-topic", groupId = "store-posts-group")
+    @KafkaListener(topics = "analytics-post-topic", groupId = "analytics-posts-group")
     public void listening(CarPostDTO carPostDTO) {
-        LOG.info("CAR STORE - Received Car Post information: {}", carPostDTO);
-        carPostService.mewPostDetails(carPostDTO);
+        LOG.info("ANALYTICS DATA - Received Car Post information: {}", carPostDTO);
+        postAnalyticsService.saveDataAnalytics(carPostDTO);
     }
 }

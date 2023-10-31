@@ -28,12 +28,13 @@ public class carPostController {
 
     @GetMapping("/posts")
     public ResponseEntity<List<CarPostDTO>> getCarSales() {
+
         return ResponseEntity.status(HttpStatus.FOUND).body(carPostStoreService.getCarForSales());
     }
 
     @PostMapping("/post")
     public ResponseEntity<CarPostDTO> postCarSales(@RequestBody CarPostDTO carPostDTO) {
-        LOG.info("USANDO EVENTOS/MENSAGENS KAFKA - Producer Car Post information: {}", carPostDTO);
+        LOG.info("MAIN REST API - USANDO EVENTOS/MENSAGENS KAFKA - Producer Car Post information: {}", carPostDTO);
         kafkaProducerMessage.sendMessage(carPostDTO);
         return new ResponseEntity<CarPostDTO>(HttpStatus.OK);
     }

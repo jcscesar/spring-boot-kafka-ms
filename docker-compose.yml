@@ -33,10 +33,24 @@ services:
     networks:
       - netCursoPortal
 
-
+  car_post_analytics:
+    image: postgres
+    container_name: car_post_analytics_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: car_post_analytics
+    volumes:
+      - ./database/car_post_analytics:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+    networks:
+      - netCursoPortal
 volumes:
   database:
 
 networks:
+
   netCursoPortal:
     driver: bridge

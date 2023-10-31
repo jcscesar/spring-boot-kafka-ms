@@ -31,7 +31,7 @@ public class PostAnalyticsServiceImpl implements PostAnalyticsService {
 
     private void saveBrandAnalytics(String brand) {
         BrandAnalyticsEntity brandAnalyticsEntity = new BrandAnalyticsEntity();
-        brandAnalytcsRepository.findyByBrand(brand).ifPresentOrElse(item -> {
+        brandAnalytcsRepository.findByBrand(brand).ifPresentOrElse(item -> {
             item.setPosts(item.getPosts() + 1);
             brandAnalytcsRepository.save(item);
         }, () -> {
@@ -44,7 +44,7 @@ public class PostAnalyticsServiceImpl implements PostAnalyticsService {
 
     private void saveCardModelAnalytics(String model) {
         CarModelAnalyticsEntity carModelAnalyticsEntity = new CarModelAnalyticsEntity();
-        carModelAnalytcsRepository.findyByModel(model).ifPresentOrElse(item -> {
+        carModelAnalytcsRepository.findByModel(model).ifPresentOrElse(item -> {
             item.setPosts(item.getPosts() + 1);
             carModelAnalytcsRepository.save(item);
         }, () -> {

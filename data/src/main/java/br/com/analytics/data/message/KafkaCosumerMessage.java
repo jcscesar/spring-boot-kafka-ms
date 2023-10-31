@@ -17,8 +17,9 @@ public class KafkaCosumerMessage {
     @Autowired
     private PostAnalyticsService postAnalyticsService;
 
-    @KafkaListener(topics = "analytics-post-topic", groupId = "analytics-posts-group")
+    @KafkaListener(topics = "car-post-topic", groupId = "analytics-posts-group")
     public void listening(CarPostDTO carPostDTO) {
+        System.out.println("Received Car Post information : " + carPostDTO);
         LOG.info("ANALYTICS DATA - Received Car Post information: {}", carPostDTO);
         postAnalyticsService.saveDataAnalytics(carPostDTO);
     }

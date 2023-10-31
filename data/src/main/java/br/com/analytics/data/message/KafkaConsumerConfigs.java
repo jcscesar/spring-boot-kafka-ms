@@ -1,7 +1,6 @@
 package br.com.analytics.data.message;
 
 import br.com.analytics.data.dto.CarPostDTO;
-import com.store.car.dto.CarPostDTO;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -29,7 +28,7 @@ public class KafkaConsumerConfigs {
     public ConsumerFactory<String, CarPostDTO> consumerFactory() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
-        configProps.put(ConsumerConfig.GROUP_ID_CONFIG, "analytics-posts-group"); // uniq
+        configProps.put(ConsumerConfig.GROUP_ID_CONFIG, "analytics-posts-group");
         configProps.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, "*");
         configProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonSerializer.class);
